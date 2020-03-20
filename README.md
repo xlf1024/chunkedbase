@@ -35,7 +35,7 @@ examples:
 |:-|:-|-:|-:|:-|
 |hexadecimal|`"0123456789abcdef"`|16|1| |
 |base64|`"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"`|64|3|differs in how padding is handled; use `atob()` and `btoa()` instead. (probably faster as well)|
-|ascii85|`"!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstu"`|85|4| |most similar, however this library does not replace all zero chunks by the single character `z`, and will fail when reading that.
+|ascii85|``"!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstu"``|85|4| |most similar, however this library does not replace all zero chunks by the single character `z`, and will fail when reading that.
 
 chosing custom formats:
 Based on the number of bytes each chunk spans in the source, the number of characters each chunk contains is calculated automatically such that all possible values can be encoded. The formula is `character_count = ceil(byte_count * 8 / log2(alphabet_size))`. The ratio `character_count / byte_count` gives the size increase due to encoding, thus minimal values are desirable. However, a large `byte_count` means that often padding will be needed, though some of it is removed as described in the wikipedia article linked above. This only matters for short payloads, obviously.
@@ -54,4 +54,5 @@ some useful combinations:
 |53|5|7|1.40|
 |64|3|4|1.33|
 |85|4|5|1.25|
+
 These represent the optimal chunk sizes for each alphabet size. Alphabet sizes not listed here will perform identical to the next lower entry in this chart, however they may be useful if you decide to limit the chunk size below 6 bytes.
