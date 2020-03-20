@@ -1,0 +1,20 @@
+{
+  "name": "chunkedbase",
+  "version": "1.0.0",
+  "description": "Library for encodings **similar to** Ascii85 ",
+  "main": "chunkedbase.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "node chunkedbase.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xlf1024/chunkedbase.git"
+  },
+  "author": "xlf1024",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xlf1024/chunkedbase/issues"
+  },
+  "homepage": "https://github.com/xlf1024/chunkedbase#readme"
+}
